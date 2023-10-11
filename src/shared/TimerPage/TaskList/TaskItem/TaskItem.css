@@ -1,0 +1,45 @@
+.task-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--color-grey-middle-light);
+    border-bottom: 1px solid var(--color-grey-middle-light);
+    width: 100%;
+    padding: 15px 0;
+}
+
+.task-body__counter {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--color-grey-light);
+    border-radius: 50%;
+}
+
+/* быдло для спана */
+/* .task-body__text {
+    color: var(--color-black);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+  } */
+
+.task-body__text {
+    color: var(--color-black);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    background-color: var(--color-white);
+    border: none;
+}
+
+.task-body__text--active {
+    background-color: var(--color-grey-ultra-light);
+}
+
+
+.task-body__button {
+    margin-left: auto;
+}

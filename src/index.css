@@ -1,13 +1,189 @@
-body {
+
+/* вот это я забыл добавить */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+img {
+  max-width: 100%;
+  /* max-width сделано для того что бы изображение не  выходило за пределы контейнера в котором находится */
+}
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 100;
+  src: local('SF UI Display Ultralight'), url('fonts/sf-ui-display-ultralight.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 200;
+  src: local('SF UI Display Thin'), url('fonts/sf-ui-display-thin.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 300;
+  src: local('SF UI Display Light'), url('fonts/sf-ui-display-light.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF UI Display Medium'), url('fonts/sf-ui-display-medium.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 500;
+  src: local('SF UI Display Semibold'), url('fonts/sf-ui-display-semibold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF UI Display Bold'), url('fonts/sf-ui-display-bold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF UI Display Heavy'), url('fonts/sf-ui-display-heavy.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 800;
+  src: local('SF UI Display Black'), url('fonts/sf-ui-display-black.woff') format('woff');
+}
+
+body {
+  min-width: 320px;
+  font-family: 'SF UI Display',sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+:root {
+  --color-white: #FFFFFF;
+  --color-black: #333333;
+  --color-grey: #999999;
+  --color-grey-light: #C4C4C4;
+  --color-grey-middle-light: #E4E4E4;
+  --color-grey-ultra-light: #F4F4F4;
+  --color-red-dark: #B7280F;
+  --color-red: #DC3E22;
+  --color-red-light: #EE735D;
+  --color-red-ultra-light: #EA8979;
+  --color-green: #899441;
+  --color-green-light: #A8B64F;
+  --color-yellow-light: #FFDDA9;
+  --color-yellow: #FFAE35;
+  --color-purpure-light: #DFDCFE;
+  --color-purpure: #9C97D7;
+  --color-coral-light: #C5F1FF;
+  --color-coral: #7FC2D7;
 }
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: var(--color-black);
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: var(--color-white);
+}
+
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: var(--color-black);
+
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.main-button {
+  background-color: var(--color-green-light);
+  padding: 15px 50px;
+  border: 2px solid var(--color-green-light);
+  color: var(--color-white);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  transition: background-color .2s linear, border-color .2s linear;
+}
+
+.main-button:hover {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+
+.main-button--grey {
+  border: 2px solid var(--color-grey-light);
+  color: var(--color-grey-light);
+  background-color: var(--color-grey-ultra-light);
+}
+
+.main-button--grey:hover {
+  border: 2px solid var(--color-red);
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+

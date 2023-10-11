@@ -1,0 +1,32 @@
+.section-left__title {
+    color: var(--color-black);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33px;
+    margin-bottom: 5px;
+  }
+  
+  .list-descr {
+    padding-left: 15px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    margin-bottom: 25px;
+  
+  }
+  
+  .list-descr__item {
+    position: relative;
+  }
+  
+  .list-descr__item::before {
+    content: '\2022';
+    color: var(--color-red);
+    position: absolute;
+    top: 0;
+    left: -15px;
+    bottom: 0;
+    right: 0;
+  }
