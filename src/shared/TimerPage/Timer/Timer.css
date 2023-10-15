@@ -1,0 +1,52 @@
+.timer__header {
+    padding: 19px 40px;
+    font-size: 16px;
+    background-color: var(--color-grey-light);
+    font-style: normal;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+  
+  .red.timer__header {
+    background-color: var(--color-red);
+  } 
+  
+  .green.timer__header {
+    background-color: var(--color-green);
+  }
+
+  .timer__main {
+    background-color: var(--color-grey-ultra-light);
+    padding-top: 70px;
+    padding-bottom: 107px;
+  }
+
+  .timer__wrapper--clock {
+    margin-bottom: 10px;
+  }
+  
+  .timer-descr {
+    margin-bottom: 32px;
+    color: var(--color-black);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .timer-descr__text {
+    color: var(--color-grey);
+  }
+  
+  .timer-descr__number {
+    color: var(--color-grey);
+  }
+  
+  .timer-descr__separator {
+    color: var(--color-grey);
+  }
+  
+  
+  .timer__wrapper--buttons {
+    display: flex;
+    gap: 25px;
+  }

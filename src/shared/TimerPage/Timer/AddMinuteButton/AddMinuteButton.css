@@ -1,0 +1,11 @@
+.timer__button svg circle{
+    transition: fill .2s linear;
+  }
+  
+  .timer__button:hover svg circle{
+    fill: var(--color-green)
+  }
+  
+  .timer__button:active svg circle{
+    fill: var(--color-green)
+  }

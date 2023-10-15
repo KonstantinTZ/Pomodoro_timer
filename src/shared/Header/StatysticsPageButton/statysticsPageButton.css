@@ -1,0 +1,27 @@
+ 
+  
+  .statistics-link__img {
+    margin-right: 5px;
+  }
+  
+  .statistics-link__descr {
+    margin-top: 6px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    color: var(--color-red);
+    transition: color .2s linear;
+  }
+  
+  .statistics-link__descr:hover {
+    color: var(--color-red-dark);
+  }
+  
+  .statistics-link svg path {
+    transition: fill .2s linear;
+  }
+  
+  .statistics-link:hover svg path {
+    fill: var(--color-red-dark)
+  }

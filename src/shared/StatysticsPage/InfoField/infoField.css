@@ -1,0 +1,47 @@
+/* .info-field:not(:last-child) {
+    margin-right: 20px;
+  } */
+  
+  .info-field {
+    width: 405px;
+    padding: 25px;
+    background-color: var(--color-grey-ultra-light);
+  }
+  
+  .info-field__title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  .info-field__metric {
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  
+  .active.info-field--focus {
+    background-color: var(--color-yellow-light);
+  }
+  
+  .active.info-field--focus svg path {
+    stroke: var(--color-yellow);
+  }
+  
+  .active.info-field--paused {
+    background-color: var(--color-purpure-light);
+  }
+  
+  .active.info-field--paused svg path {
+    stroke: var(--color-purpure);
+  }
+  
+  .active.info-field--stops {
+    background-color: var(--color-coral-light);
+  }
+  
+  .active.info-field--stops svg path {
+    stroke: var(--color-coral);
+  }
+  

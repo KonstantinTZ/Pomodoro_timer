@@ -1,0 +1,31 @@
+.statistics__row {
+    margin-bottom: 30px;
+  }
+
+.statistics__wrapper {
+  padding: 0;
+}
+
+.statistics__chart {
+  padding: 0;
+}
+  
+  .statistics__title {
+    align-self: center;
+    width: 300px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+  
+  .statistics__select {
+    width: 370px;
+    padding: 19px 15px;
+    border: inherit;
+    background-color: var(--color-grey-ultra-light);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-black);
+  }

@@ -1,0 +1,11 @@
+.logo-link__img {
+    margin-right: 12px;
+}
+
+.logo-link__descr {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    color: var(--color-red);
+}

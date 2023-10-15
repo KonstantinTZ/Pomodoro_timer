@@ -1,0 +1,7 @@
+.hoursCounter {
+    margin-top: 16px;
+    color: var(--color-grey);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+}

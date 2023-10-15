@@ -1,0 +1,20 @@
+.clock {
+    display: flex;
+    color: var(--color-black);
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 200;
+    margin-right: 25px;
+  }
+  
+  .red.clock {
+    color: var(--color-red);
+  }
+  
+  .green.clock {
+    color: var(--color-green);
+  }
+  
+  .timer__wrapper--clock {
+    margin-bottom: 10px;
+  }
