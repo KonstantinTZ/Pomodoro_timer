@@ -34,10 +34,12 @@ export const Timer = observer(() => {
   }
   // Правильно ли так делать ^
 
+  
+
   let mainTimerId = useRef(null); // из документации use Ref что бы можно было применять во всех местах кода
 
   // константы
-  const TWENTY_FIVE_MINUTES = 15000  // 25 мин = 1500000 милисекунд
+  const TWENTY_FIVE_MINUTES = 1500000  // 25 мин = 1500000 милисекунд
   const THIRTY_MINUTES =1800000  // 30 мин = 1800000
   const FIVE_MINUTES = 300000// 5 мин = 300000 мс
   const FIVTINE_MINUTES = 900000 // 15 мин = 900000 мс

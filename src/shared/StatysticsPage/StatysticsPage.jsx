@@ -124,8 +124,13 @@ export function StatysticsPage() {
 
   //focus
 
-  let focusPercent = ((workMinuteCounter / (workMinuteCounter + pauseMinuteCounter)) * 100).toFixed(0)
-
+  let focusPercent
+  
+  if (workMinuteCounter === 0) {
+    focusPercent = 0
+  } else if (workMinuteCounter !== 0) {
+    focusPercent = ((workMinuteCounter / (workMinuteCounter + pauseMinuteCounter)) * 100).toFixed(0)
+  }
   
 
   useEffect(() => {

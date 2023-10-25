@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TaskItem.css';
 import { DropDown } from '../../DropDown/DropDown';
-import saveModeOpener from '../../../../store/saveModeOpener';
+// import saveModeOpener from '../../../../store/saveModeOpener';
 import { observer } from 'mobx-react-lite';
 
 const NOOP = () => {};
@@ -19,16 +19,20 @@ export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOO
   //   isDropDownOpen(false)
 	// }, [isDropDownOpen])
 
-  let isInputOpen = saveModeOpener.saveModeStatus
+  // let isInputOpen = saveModeOpener.saveModeStatus
+  const [isInputOpen, setInputOpen] = useState(false)
+
+  const toggleInputOpen = () => {
+    setInputOpen(!isInputOpen);
+  };
+
+  const handleInputClose = () => {
+    setInputOpen(false);
+    
+};
+
   let isSpanOpen = !isInputOpen
-  // исправить баг, при нажатии "редактировать ВСЕ поля становятся активными для редактирования"
-
-
-  // const [isSaveButtonActive, SaveButtonActive] = React.useState(false);
-
-  // // function  saveButtonStatusChanger() {
-  // //   SaveButtonActive(true)
-  // // }
+ 
 
   const [inputValue, setInputValue] = React.useState(taskText);
 
@@ -45,10 +49,7 @@ export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOO
     if (isOpen === undefined) {
       setIsDropdownOpen(!isDropdownOpen)
     }
-
-    if (isInputOpen === true){
-      saveModeOpener.saveModeCloseFn();
-    }
+    handleInputClose()
   }
 
   return (
@@ -69,7 +70,7 @@ export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOO
             <circle cx={23} cy={3} r={3} fill="#C4C4C4" />
           </svg>
         </button>
-        {isDropdownOpen && <DropDown taskId={taskId}  inputValue={inputValue}/> }
+        {isDropdownOpen && <DropDown taskId={taskId}  inputValue={inputValue} toggleInputOpen={toggleInputOpen } handleInputClose ={handleInputClose }/> }
       </li>
   );
 })
