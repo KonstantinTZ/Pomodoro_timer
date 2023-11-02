@@ -1,45 +1,53 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './DropDown.css';
 import taskStore from '../../../store/taskStore';
-import saveModeOpener from '../../../store/saveModeOpener';
 import modalOpener from '../../../store/modalOpener';
 import { observer } from 'mobx-react-lite';
 import { ModalDelete } from './ModalDelete/ModalDelete';
 
 
 
-export const DropDown = observer( ({taskId, inputValue})  =>{
+export const DropDown = observer( ({taskId, inputValue, toggleInputOpen, isInputOpen, handleInputClose})  =>{
 
-  let isSaveButtonActive = saveModeOpener.saveModeStatus
-  let isEditButtonActive = !isSaveButtonActive
+   const [isSaveButtonActive, setSaveButtonActive] = useState(isInputOpen)
+
   let isModalDeleteOpen = modalOpener.modalStatus
 
   const ref = useRef(null)
 
   function handlerSaveButton () {
-    saveModeOpener.saveModeCloseFn();
+
+    toggleInputOpen()
     taskStore.changeTextFn(taskId, inputValue)
+    setSaveButtonActive(false)
   }
 
   function handlerEditButton () {
-    saveModeOpener.saveModeOpenFn()
+
+    toggleInputOpen()
+    setSaveButtonActive(true)
   }
 
   function handlerIncreaceButton () {
     taskStore.changeCounterFn(taskId, true)
-    saveModeOpener.saveModeCloseFn();
+   
+    handleInputClose ()
+    setSaveButtonActive(false)
   }
 
   function handlerDecriseButton () {
     taskStore.changeCounterFn(taskId, false)
-    saveModeOpener.saveModeCloseFn();
+  
+    handleInputClose ()
+    setSaveButtonActive(false)
   }
 
   function handlerDeleteButton () {
     
-    saveModeOpener.saveModeCloseFn();
+
     modalOpener.modalOpenFn();
-    
+    handleInputClose ()
+    setSaveButtonActive(false)
   }
 
   
@@ -47,7 +55,6 @@ export const DropDown = observer( ({taskId, inputValue})  =>{
   function outsideClick(event) {
 
     if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-      // console.log('клик вне');
       // для того что бы закрывать по клику вне
     }
 
@@ -112,7 +119,7 @@ export const DropDown = observer( ({taskId, inputValue})  =>{
           </svg>
           <span className="dropdown-controll__text">Уменьшить</span>
         </button>
-        {isEditButtonActive && <button className="dropdown__button btn-reset" onClick={handlerEditButton}>
+        {!isSaveButtonActive && <button className="dropdown__button btn-reset" onClick={handlerEditButton}>
           <svg
             className="dropdown-controll__img"
             width={18}
@@ -135,7 +142,7 @@ export const DropDown = observer( ({taskId, inputValue})  =>{
           </svg>
           <span className="dropdown-controll__text">Редактировать</span>
         </button>}
-       {isSaveButtonActive && <button className="dropdown__button btn-reset" onClick={handlerSaveButton}>
+       {isSaveButtonActive  && <button className="dropdown__button btn-reset" onClick={handlerSaveButton}>
           <svg
             className="dropdown-controll__img"
             width={18}

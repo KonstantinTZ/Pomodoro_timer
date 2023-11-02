@@ -1,34 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TaskItem.css';
 import { DropDown } from '../../DropDown/DropDown';
-import saveModeOpener from '../../../../store/saveModeOpener';
 import { observer } from 'mobx-react-lite';
 
 const NOOP = () => {};
 
 export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOOP, onClose = NOOP, taskId}) => {
   // eslint-disable-next-line
-  // const [isDropDownOpen, setDropDownOpen] = useState(false)
-  // для закрытия на нажатие Вне 
-  // НЕ РАБОТАЕТ
-  // const dropDownClose = () => {
-  //   console.log('Я пытаюсь закрыться')
-  // };
+  const [isInputOpen, setInputOpen] = useState(false)
 
-  // useEffect(()=>{
-  //   isDropDownOpen(false)
-	// }, [isDropDownOpen])
+  const toggleInputOpen = () => {
+    setInputOpen(!isInputOpen);
+  };
 
-  let isInputOpen = saveModeOpener.saveModeStatus
+  const handleInputClose = () => {
+    setInputOpen(false);
+    
+};
+
   let isSpanOpen = !isInputOpen
-  // исправить баг, при нажатии "редактировать ВСЕ поля становятся активными для редактирования"
-
-
-  // const [isSaveButtonActive, SaveButtonActive] = React.useState(false);
-
-  // // function  saveButtonStatusChanger() {
-  // //   SaveButtonActive(true)
-  // // }
+ 
 
   const [inputValue, setInputValue] = React.useState(taskText);
 
@@ -45,10 +36,7 @@ export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOO
     if (isOpen === undefined) {
       setIsDropdownOpen(!isDropdownOpen)
     }
-
-    if (isInputOpen === true){
-      saveModeOpener.saveModeCloseFn();
-    }
+    handleInputClose()
   }
 
   return (
@@ -69,7 +57,7 @@ export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOO
             <circle cx={23} cy={3} r={3} fill="#C4C4C4" />
           </svg>
         </button>
-        {isDropdownOpen && <DropDown taskId={taskId}  inputValue={inputValue}/> }
+        {isDropdownOpen && <DropDown taskId={taskId}  inputValue={inputValue} toggleInputOpen={toggleInputOpen } handleInputClose ={handleInputClose }/> }
       </li>
   );
 })

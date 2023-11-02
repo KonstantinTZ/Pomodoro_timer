@@ -52,7 +52,6 @@ export function AddTaskForm() {
         className="add-form__button btn-reset main-button" id="add-form-button" type='submit'>
         Добавить
       </button>
-      {/* сделать проверку на заполненность */}
     </form>
   );
 }
