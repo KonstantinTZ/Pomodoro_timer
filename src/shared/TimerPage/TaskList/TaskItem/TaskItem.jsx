@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import './TaskItem.css';
 import { DropDown } from '../../DropDown/DropDown';
-// import saveModeOpener from '../../../../store/saveModeOpener';
 import { observer } from 'mobx-react-lite';
 
 const NOOP = () => {};
 
 export const TaskItem = observer( ({taskCounter, taskText,  isOpen, onOpen = NOOP, onClose = NOOP, taskId}) => {
   // eslint-disable-next-line
-  // const [isDropDownOpen, setDropDownOpen] = useState(false)
-  // для закрытия на нажатие Вне 
-  // НЕ РАБОТАЕТ
-  // const dropDownClose = () => {
-  //   console.log('Я пытаюсь закрыться')
-  // };
-
-  // useEffect(()=>{
-  //   isDropDownOpen(false)
-	// }, [isDropDownOpen])
-
-  // let isInputOpen = saveModeOpener.saveModeStatus
   const [isInputOpen, setInputOpen] = useState(false)
 
   const toggleInputOpen = () => {

@@ -55,7 +55,6 @@ export const DropDown = observer( ({taskId, inputValue, toggleInputOpen, isInput
   function outsideClick(event) {
 
     if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-      // console.log('клик вне');
       // для того что бы закрывать по клику вне
     }
 

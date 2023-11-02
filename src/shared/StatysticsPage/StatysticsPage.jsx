@@ -34,7 +34,6 @@ export function StatysticsPage() {
   let [isLoaded] = useState(false) // isLoaded для стилизации и добавления "заглушек" и избавления от ошибок, что taskArray[index].text не найден
   loadingStatus(finishTaskArray) // запускаем ф-ю
 
-  // setIsLoaded (taskArray.length !== 0 ? true : false) пишет, что много ререндеров, нужно решать через useEffect, а он только загружает 
   // один Первый раз
   function loadingStatus(array) { // тут понятно
     if (array.length === 0) {
@@ -45,7 +44,7 @@ export function StatysticsPage() {
 
     return isLoaded
   }
-  // Правильно ли так делать ^
+
 
   const [isPauseMinutesStyleActive, setPauseMinutesStyleActive] = useState('')
   const [isStopCounterStyleActive, setStopCounterStyleActive] = useState('')
@@ -97,12 +96,10 @@ export function StatysticsPage() {
 
   useEffect(() => {
     if (pauseMinuteCounter !== 0) { //  вывод на страницу pauseMinute + стилизация
-      // document.getElementById('pause-box').classList.add('active')
-      // document.getElementById('pause-metric').textContent = pauseMinute + 'м'
+
       setPauseMinutesStyleActive('active')
     } else if (pauseMinuteCounter === 0) {
-      // document.getElementById('pause-box').classList.remove('active')
-      // document.getElementById('pause-metric').textContent = pauseMinute + 'м'
+
       setPauseMinutesStyleActive('')
     }
   }, [pauseMinuteCounter]);
@@ -216,7 +213,6 @@ export function StatysticsPage() {
   const [selectInputValue, setSelectAddInputValue] = useState(selectOptions[0].value);
   function onChangeHandler(event) {
 
-    console.log(event.target.value);
     setSelectAddInputValue(event.target.value)
 
 
@@ -243,11 +239,10 @@ export function StatysticsPage() {
       currentWeekNumber = weekNumberFn(twoWeekAgo)
     }
 
-    console.log('currentWeekNumber ->', currentWeekNumber)
 
 
     weekDaysArray = mainActionFn(currentWeekNumber, finishTaskArray) // получаем
-    console.log('weekDaysArray, после SELECTA->', weekDaysArray)
+
 
     setChartData(weekDaysArray)
   }
@@ -257,7 +252,6 @@ export function StatysticsPage() {
 
   // chartJS Settings
   // настраиваб бэкграунд колонок
-  // https://www.youtube.com/watch?v=ylWoIaSgThk
   let today = new Date()
   let todayIndex = today.getDay()
   let backgroundcolor = [];
@@ -266,13 +260,11 @@ export function StatysticsPage() {
     if (chartData[i] > 60000) { backgroundcolor.push('#EA8A79') }
   }
   backgroundcolor[todayIndex] = '#DC3E22'
-  console.log('backgroundcolor ->', backgroundcolor)
 
 
   const data = {
     labels: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
     datasets: [{
-      // label: 'количество помидорок',
       data: chartData,
       borderWidth: 1,
       backgroundColor: backgroundcolor, // настраиваб бэкграунд колонок
@@ -287,7 +279,6 @@ export function StatysticsPage() {
         position: 'right',
         background: "#F4F4F4",
         ticks: {
-          // https://www.youtube.com/watch?v=qD4mZUicKe0
           // настраиваю насвания на шкале Y
           callback: function (value, index, values) {
 
@@ -306,15 +297,10 @@ export function StatysticsPage() {
       x: {
         backgroundColor: "#ECECEC",
         ticks: {
-          // https://www.youtube.com/watch?v=lMFB59oQo94
           // настраиваю подсвечивание дня недели на шкале X
           color: (context, index) => {
             let today = new Date()
             let todayIndex = today.getDay()
-            // console.log('todayIndex ->', todayIndex)
-            // context.chart.data.datasets[0].data.forEach((datapoint, index)=> {
-            //   console.log("datapoint.indexOf(datapoint)", datapoint.indexOf(datapoint))
-            // })
             const ticksColors = ['#999', '#999', '#999', '#999', '#999', '#999', '#999']
             ticksColors[todayIndex] = '#DC3E22'
             return ticksColors

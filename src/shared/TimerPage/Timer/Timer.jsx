@@ -13,16 +13,9 @@ export const Timer = observer(() => {
   // выгружаем массив из MOBX taskStore с которым будем работать
 
 
-  // let [isLoaded, setIsLoaded] = useState(false)
-  // useEffect(() => {
-  //   setIsLoaded(taskArray.length !== 0 ? true : false)
-  // }, [taskArray]); // НЕ РАБОТАЕТ + добавить импорт USESTATE, Приизменении массива НЕ Перерендеривает, хотя в зависимостях taskArray
-
   let [isLoaded] = useState(false) // isLoaded для стилизации и добавления "заглушек" и избавления от ошибок, что taskArray[index].text не найден
   loadingStatus(taskArray) // запускаем ф-ю
 
-  // setIsLoaded (taskArray.length !== 0 ? true : false) пишет, что много ререндеров, нужно решать через useEffect, а он только загружает 
-  // один Первый раз
   function loadingStatus(array) { // тут понятно
     if (array.length === 0) {
       isLoaded = false
@@ -32,9 +25,7 @@ export const Timer = observer(() => {
 
     return isLoaded
   }
-  // Правильно ли так делать ^
 
-  
 
   let mainTimerId = useRef(null); // из документации use Ref что бы можно было применять во всех местах кода
 
@@ -56,7 +47,7 @@ export const Timer = observer(() => {
 
 
   // для показа необходимых кнопок
-  // здесь хуки работают стабильно
+
   let [isStartButtonOpen, setStartButtonStatus] = useState(true)
   let [isPauseButtonOpen, setPauseButtonStatus] = useState(false)
   let [isContinueButtonOpen, setContinuetButtonStatus] = useState(false)
@@ -66,7 +57,7 @@ export const Timer = observer(() => {
   let [isAddOneMinuteButtonOpen, setAddOneMinuteButtonOpen] = useState(true)
 
   // для показа необходимых заглушек
-  // здесь хуки работают стабильно
+
   let [showRealx, setShowRelax] = useState(false)
   let [showYouTurnedOnPause, setYouTurnedOnPause] = useState(false)
 
@@ -76,10 +67,8 @@ export const Timer = observer(() => {
 
     if (isTimerReverse === false) { // если false , то отнимаем секунду
       mainInterval = mainInterval - 1000
-      //setMainInterval(mainInterval - 1000); ХУК НЕ РАБОТАЕТ Время не изменяется
     } else if (isTimerReverse === true) { // если тру, то прибавляем секунду
       mainInterval = mainInterval + 1000
-      //setMainInterval(mainInterval + 1000); ХУК НЕ РАБОТАЕТ Время не изменяется
     }
     
     setMainInterval(mainInterval)
@@ -94,15 +83,15 @@ export const Timer = observer(() => {
       // для работы с паузой
       if (((taskArray[arrayIndex].pomodore + 1) % 4 === 0)) { // +1 т.к. поимидорки начинаются с нуля
         workPause(FIVTINE_MINUTES) // вызываем паузу
-        console.log('длинная пауза')
+
 
       } else if ((taskArray[arrayIndex].pomodore + 1) % 4 !== 0) {
         workPause(FIVE_MINUTES)
-        console.log('короткая пауза')
+
       }
 
     } else if (mainInterval <= 0 && isPaused === true) { // для того что бы остановить отсчет после завершения работы паузы
-      console.log('таймер паузы на нуле')
+
       mainInterval = 0 // обнуляем таймер
       clearInterval(mainTimerId.current); // останавливаем таймер
 
@@ -148,7 +137,6 @@ export const Timer = observer(() => {
 
   function workPause(pauseInterval) {
     isPaused = true
-    // setPaused(true) //не срабатывает, падает в цикл
     clearInterval(mainTimerId.current);
     mainInterval = pauseInterval //300000 - 5 мин 900000 - 15 мин задаем интервал на который будет пауза
 
@@ -185,16 +173,14 @@ export const Timer = observer(() => {
       return
     }
 
-    console.log('savedInterval', savedInterval)
     if (savedInterval === 0) { // усли сохранённый интервал = 0 то задаём интервал в 25 мин
       setMainInterval(TWENTY_FIVE_MINUTES)
-      console.log('savedInterval === 0')
     } else if (savedInterval !== 0) { // иначе 
       taskArray[arrayIndex].pauseTime = taskArray[arrayIndex].pauseTime + mainInterval; // и приплюсовываем время, которое было в паузе
-      console.log('savedInterval !== 0 ,сохранившийся mainInterval', mainInterval)
+
       mainInterval = savedInterval;
       setMainInterval(mainInterval) // вставляем из сохоанённого интервала
-      console.log('savedInterval !== 0 , mainInterval', mainInterval)
+
     } // не работает
 
     setYouTurnedOnPause(false)
@@ -224,17 +210,16 @@ export const Timer = observer(() => {
   }
 
   function pauseButtonHandler() {
-    // setSavedIntrval(mainInterval) // НЕ РАБОТАЕТ Сожраняет 0
-    // console.log('setSavedIntrval(mainInterval)', setSavedIntrval(mainInterval))
+
     clearInterval(mainTimerId.current);
     savedInterval = mainInterval; // сохранят TWENTY_FIVE_MINUTES  т.е. изначально значение mainInterval;, а не уже отсчитанное
     setSavedIntrval(savedInterval) 
-    console.log('savedInterval', savedInterval)
+
     //установить на 0
     mainInterval = 0
     isTimerReverse = true
     mainTimerId.current = setInterval(mainTimer, 1000); // включаем таймер mainTimerId.current - т.к. работаем через useRef
-    // setTimerReverse(true) // ф-я сеттер ХУКА отрабатывает НЕ ВЕРНО, работает только isTimerReverse = true ПОЧЕМУ ?
+   
     setYouTurnedOnPause(true)  // добавляем информ сообщение
 
     // переключаем кнопки в соответствии с макером (одномоментно может быть 2 кнопки)
@@ -265,7 +250,6 @@ export const Timer = observer(() => {
    
     if (mainInterval < TWENTY_FIVE_MINUTES) { // если таймер не меньше 25 минутам, то 
       taskArray[arrayIndex].stopCounter = taskArray[arrayIndex].stopCounter + 1 // то прибавляем еолличество стопов
-      console.log('taskArray[arrayIndex].stopCounter ->', taskArray[arrayIndex].stopCounter)
     }
 
     savedInterval = 0;
@@ -447,10 +431,6 @@ export const Timer = observer(() => {
       setsecondsText(seconds < 10 ? '0' + seconds : seconds); //отрисовываем
   }
   }
-
-  //  useEffect(() => {
-  //   addOneMinute ()
-  // }, [setMinutesText, ]); // НЕ РАБОТАЕТ + добавить импорт USESTATE, Приизменении массива НЕ Перерендеривает, хотя в зависимостях taskArray
 
 
 

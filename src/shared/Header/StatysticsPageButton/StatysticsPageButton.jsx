@@ -35,7 +35,6 @@ export function StatysticsPageButton() {
             </clipPath>
           </defs>
         </svg>
-        {/* <img class="statistics-link__img" src="img/statystik__img.svg" alt="логотип"> */}
         <span className="statistics-link__descr ">Статистика</span>
       </button>
   );
