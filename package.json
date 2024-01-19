@@ -1,4 +1,5 @@
 {
+  "homepage": "https://konstantintz.github.io/Pomodoro_timer/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.0",
+    "gh-pages": "^6.1.1",
     "jotai": "^2.4.2",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.5",
@@ -19,6 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "dg-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
