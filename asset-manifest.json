@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Pomodoro_timer/static/css/main.30c933c0.css",
+    "main.js": "/Pomodoro_timer/static/js/main.0d723ee0.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Pomodoro_timer/static/js/787.28cb0dcd.chunk.js",
+    "static/media/sf-ui-display-heavy.woff": "/Pomodoro_timer/static/media/sf-ui-display-heavy.049aa5b26b4365baf858.woff",
+    "static/media/sf-ui-display-semibold.woff": "/Pomodoro_timer/static/media/sf-ui-display-semibold.34c6d94aeee6a6539231.woff",
+    "static/media/sf-ui-display-bold.woff": "/Pomodoro_timer/static/media/sf-ui-display-bold.48b5bd1c115a84edd2e5.woff",
+    "static/media/sf-ui-display-medium.woff": "/Pomodoro_timer/static/media/sf-ui-display-medium.06adfd256f40f8baa0a0.woff",
+    "static/media/sf-ui-display-light.woff": "/Pomodoro_timer/static/media/sf-ui-display-light.6f4c2292920ad02a3d61.woff",
+    "static/media/sf-ui-display-black.woff": "/Pomodoro_timer/static/media/sf-ui-display-black.63ed909b8b9325fb028c.woff",
+    "static/media/sf-ui-display-thin.woff": "/Pomodoro_timer/static/media/sf-ui-display-thin.5a554fdb67359840921c.woff",
+    "static/media/sf-ui-display-ultralight.woff": "/Pomodoro_timer/static/media/sf-ui-display-ultralight.9a5c81a82ecebf363172.woff",
+    "static/media/pomodoro-smile.svg": "/Pomodoro_timer/static/media/pomodoro-smile.0a950e04ea5c3543752ba761f03554c2.svg",
+    "static/media/pomidoro__img.svg": "/Pomodoro_timer/static/media/pomidoro__img.85581b8b00e23dbbf4b9cd0224059963.svg",
+    "index.html": "/Pomodoro_timer/index.html",
+    "static/media/focus__img.svg": "/Pomodoro_timer/static/media/focus__img.12f11d0f8cdb126eb4cc.svg",
+    "static/media/pause__img.svg": "/Pomodoro_timer/static/media/pause__img.efbdb8fd883af6c01aa8.svg",
+    "static/media/stops__img.svg": "/Pomodoro_timer/static/media/stops__img.fc62470e099151969cfc.svg",
+    "static/media/statystik__img.svg": "/Pomodoro_timer/static/media/statystik__img.f369259d8eadbed434d2.svg",
+    "main.30c933c0.css.map": "/Pomodoro_timer/static/css/main.30c933c0.css.map",
+    "main.0d723ee0.js.map": "/Pomodoro_timer/static/js/main.0d723ee0.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Pomodoro_timer/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30c933c0.css",
+    "static/js/main.0d723ee0.js"
+  ]
+}
