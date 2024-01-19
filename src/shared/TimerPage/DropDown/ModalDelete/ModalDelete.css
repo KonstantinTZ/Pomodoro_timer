@@ -1,0 +1,113 @@
+/* 
+========================
+popUp-rc
+========================
+*/
+
+.popup-rc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 8000;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+
+}
+
+.popup-rc__box {
+    position: relative;
+    width: 350px;
+    min-width: 350px;
+    padding: 22px;
+    background-color: #FFFFFF;
+    transform: scale(0);
+    transition: transform .5s ease-in-out;
+}
+
+.popup-rc__title {
+    margin-bottom: 25px;
+    color: #333;
+    font-family: SF UI Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.popup-rc__btn-submit {
+
+    margin-bottom: 10px;
+    padding: 13px 35px;
+    color: #FFF;
+    text-align: center;
+    font-family: SF UI Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    background-color: #DC3E22;
+    border: 1px solid #DC3E22;
+    border-radius: 0;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.popup-rc__btn-submit:hover {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.popup-rc__btn-submit:active {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.popup-rc__btn-cancel {
+    font-family: SF UI Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+}
+
+.popup-rc__btn-close {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 19px;
+    top: 16px
+}
+
+
+.popup-rc__btn-close svg path {
+    transition: fill .3s;
+}
+
+.popup-rc__btn-close:hover svg path {
+    fill: #DC3E22;
+}
+
+.popup-rc__btn-close:active svg path {
+    fill: #DC3E22;
+}
+
+
+.popup-rc.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-rc.open .popup-rc__box {
+    transform: scale(1);
+}

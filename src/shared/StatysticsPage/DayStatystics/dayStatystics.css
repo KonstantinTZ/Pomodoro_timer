@@ -1,0 +1,36 @@
+.day-activity-field {
+    width: 296px;
+    height: 260px;
+    margin-bottom: 32px;
+    background-color: var(--color-grey-ultra-light);
+    padding: 25px;
+  }
+  
+  .day-activity-field__day {
+    margin-bottom: 14px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+  
+  .day-activity-field__plug {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-black);
+  }
+  
+  .day-activity-field__info {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-black);
+  }
+  
+  .info__counter {
+    font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-red);
+  }
